@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+
+    <!-- // -------First window ---------------// -->
+    <header class="first-window-header">
+        <div class="page-header">
+            <button type="button" class="btn  modal-sing-in-open">Logowanie</button>
+
+            <button type="button" class="btn modal-sing-up-open">Rejestracja</button>
+
+            <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
+
+            <div class="user-name">
+                <p class="user-name-text">My name</p>
+            </div>
+
+            <button type="submit" class="close-out btn" data-modal-out>Wyloguj</button>
+        </div>
+    </header>
+
+    <section class="about-wallet">
+        <h1>Twoje finanse to twoje romanse</h1>
+        <h2>Miej wszystko pod kontrolą, bądź dyrygentem za swoje pieniądze</h2>
+        <p>Jedną z głównych metod poprawy kondycji finansowej jest przejrzysta kontrola i księgowość.</p>
+        <p>Ta aplikacja pomoże Ci na co dzień być świadomym bilansu finansowego, przeglądać historię transakcji oraz
+            analizować wydatki i dochody</p>
+        <h3>Spojrzyj z nami z większą pewnością w swoją finansową przyszłość!</h3>
+    </section>
+
+    <!-- End of first window -->
+
+    <!-- Header if modal Sing in open -->
+    <!-- <header>
+        <div class="page-header sing-in-open">
+            
+            <button type="button" class="sing-up-btn btn">Rejestracja</button>
+            
+            <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
+            
+        </div>
+    </header> -->
+    <!-- Header if modal Sing in open End-->
+
+    <!-- Header if modal Sing up open -->
+    <!-- <header>
+        <div class="page-header sing-up-open">
+            
+            <button type="button" class="sing-in-btn btn">Logowanie</button>
+            
+            <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
+            
+        </div>
+    </header> -->
+    <!-- Header if modal Sing up open End-->
+
+    <!-- Main Window User -->
+    <!-- <header>
+        <div class="page-header main-window">
+            
+            <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
+            
+            <div class="user-name">
+<p class="user-name">My name</p>
+            </div>
+            
+            <button type="button" class="close-out btn" data-modal-close>Wyloguj</button>
+        </div>
+    </header> -->
+
+    <section class="main-windiow-section">
+        <div class="charts">
+            <canvas id="popChart" width="600" height="400"></canvas>
+        </div>
+        <div class="transaction-history">
+            <p class="title-transaction">HISTORIA TRANSAKCJI</p>
+            <div class="statistic-table">
+
+
+                <!-- Table  -->
+                <table class="js-table-statistic">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Typ transakcji</th>
+                            <th>Opis</th>
+                            <th>Kwota</th>
+                            <th>Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01/01/2023</td>
+                            <td>+</td>
+                            <td>wnesek</td>
+                            <td>8000</td>
+                            <td>+6000</td>
+                        </tr>
+                        <tr>
+                            <td>01/01/2023</td>
+                            <td>+</td>
+                            <td>wnesek</td>
+                            <td>8000</td>
+                            <td>+6000</td>
+                        </tr>
+                        <tr>
+                            <td>01/01/2023</td>
+                            <td>+</td>
+                            <td>wnesek</td>
+                            <td>8000</td>
+                            <td>+6000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- Table  End-->
+
+            </div>
+        </div>
+
+    </section>
+    <!-- Main Window User End  -->
+
+    <!-- Footer/  -->
+    <footer class="footer">
+        <h4 class="footer-text">2023 | Developed with <span class="icon-heart">
+                <svg width="18" height="18">
+                    <use href="./image/heart.svg#icon-heart"></use>
+                </svg>
+            </span> for <span class="intive">intive</span> by Olena Holubonkova</h4>
+        <!-- <svg class="logo-intive" width="77" height="24">
+            <use href="./image/icon-intive.svg#icon-intive" width="70" height="70"></use>
+        </svg> -->
+    </footer>
+    <!-- -----End Footer ---  -->
+
+
+    <!-- -- MODAL - SING UP   --- -->
+    <div class="backdrop is-hidden modal-up-open" data-modal-sing-up>
+        <div class="modal-container sing-up-modal">
+
+            <form class="modal-form sing-up">
+                <p class="modal-form-call">Rejestracja</p>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Nazwa użytkownika</span>
+                    <input type="text" name="user-data-sing-up-name" class="modal-form-input js-data-sing-up-name"
+                        required autocomplete="off" minlength="6" maxlength="16" pattern="[a-zA-Z]+">
+                </label>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Hasło</span>
+                    <input type="text" name="user-data-password" class="modal-form-input js-data-sing-up-password"
+                        required autocomplete="off" minlength="6" pattern="[a-zA-Z0-9]+">
+                </label>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Email</span>
+                    <input type="email" name="user-data-sing-up-email" class="modal-form-input js-data-sing-up-email"
+                        required autocomplete="off">
+                </label>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Potwierdź email</span>
+                    <input type="email" name="user-data-sing-up-email-control"
+                        class="modal-form-input js-data-sing-up-email-control" required autocomplete="off">
+                </label>
+
+                <button type="submit" class="modal-form-submit btn js-sing-up">Zarejetruj</button>
+            </form>
+            <button type="button" class="close-btn stop-btn-up" data-modal-close>
+                <div class="close-btn-inner">
+                    <span class="close-btn-text">Wróć</span>
+                </div>
+            </button>
+        </div>
+    </div>
+    <!-- -- MODAL - SING UP End  --- -->
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+    <!-- -- MODAL - SING IN--- -->
+    <div class="backdrop is-hidden modal-in-open" data-modal-sing-in>
+        <div class="modal-container sing-in-modal">
+
+            <form class="modal-form sing-in">
+                <p class="modal-form-call">Logowanie</p>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Nazwa użytkownika / Email</span>
+                    <input type="text" name="user-data-sing-in" class="modal-form-input js-data-sing-in" required
+                        autocomplete="off">
+                </label>
+
+                <label class="modal-form-field">
+                    <span class="modal-form-input-descr">Hasło</span>
+                    <input type="text" name="user-data-password" class="modal-form-input js-data-sing-in-password"
+                        required autocomplete="off">
+                </label>
+
+                <button type="submit" class="modal-form-submit btn js-sing-in btn">Zaloguj</button>
+            </form>
+
+            <button type="button" class="close-btn stop-btn-in" data-modal-close>
+                <div class="close-btn-inner">
+                    <span class="close-btn-text">Wróć</span>
+                </div>
+            </button>
+
+        </div>
+    </div>
+    <!-- -- MODAL - SING IN   End--- -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./js/main.js"></script>
+</body>
+
+</html>
