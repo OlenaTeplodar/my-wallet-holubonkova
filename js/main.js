@@ -1,31 +1,61 @@
 import { fetchTransaction } from "./api.js";
 
+// import onSaldo from "./saldo.js";
+
 const ctx = document.getElementById("myChart");
-// document.querySelector(".about-wallet").addEventListener("click", addChart);
-function addChart() {
+
+
+// получаем данніе для построения гистограм
+
+const saldoArray = [];
+
+ async function onSaldo() {
+   const transactionArray = await fetchTransaction();
+   const items = transactionArray.transactions;
+  const uniqueDate = [...items]
+    .map((items) => items.date)
+    .filter((dates, index, array) => array.indexOf(dates) === index);
+  console.log(uniqueDate);
+let sum = 0;
+  
+  for (let k = 0; k < uniqueDate.length; k += 1) {
+      for (let i = 0; i < items.length; i += 1) {
+        if (uniqueDate[k] === items[i].date) {
+          sum = sum + items[i].amount;
+        }
+      }
+    saldoArray.push(sum);
+    sum = 0;
+    }
+console.log(saldoArray);
+    // return uniqueDate;
+};
+
+onSaldo();
+
+
+// будуємо діаграму
+
+function addBarChart() {
+  onSaldo();
   new Chart(ctx, {
     type: "bar",
     data: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+      labels: uniqueDate,
       datasets: [
         {
           label: "# of Votes",
-          data: [12, 19, 3, 5, 2, 3],
+          data: saldoArray,
           borderWidth: 1,
         },
       ],
     },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
   });
 }
 
-document.querySelector(".about-wallet").addEventListener("click", addChart);
+document.querySelector(".about-wallet").addEventListener("click", addBarChart);
+
+
 const refs = {
   body: document.querySelector("body"),
 
@@ -155,11 +185,17 @@ async function vieArray() {
     const transactionArray = await fetchTransaction();
     const arrayNew = transactionArray.transactions;
     const transactionAll = arrayNew.map((transaction) => transaction.type);
+    console.log(transactionArray);
+    console.log(arrayNew);
     return transactionAll;
   } catch (error) {
     console.log(error);
   }
 }
+
+
+
+
 
 async function lengthArray() {
   const long = await vieArray();
