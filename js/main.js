@@ -1,8 +1,46 @@
 import { fetchTransaction } from "./api.js";
-
+import { refs } from "./refs.js";
+// import { creatTransactionArrayObj } from "./transaction-obj.js";
 // import onSaldo from "./saldo.js";
+import { onTableBuild} from './filling-table-desctop.js';
+
 
 const ctx = document.getElementById("myChart");
+
+// -------Слухаємо розмір вікна
+// refs.slider.style.overflow = 'hidden';
+// const windowWidth = window.innerWidth;
+// console.log(windowWidth);
+// window.addEventListener('resize', controlWindow);
+
+// function controlWindow() {
+//   if (windowWidth < 768) {
+//     refs.noShowBothCharts.classList.toggle('not-show');
+
+//   }
+//   refs.noShowSlider.classList.toggle('not-show');
+// }
+
+// let selectedTr;
+
+// refs.tableStatistic.onclick = function (event) {
+//   let target = event.target; // где был клик?
+
+//   if (target.tagName != "TD") return; // не на TD? тогда не интересует
+
+//   highlight(target); // подсветить TD
+// };
+
+// function highlight(tr) {
+//   if (selectedTr) {
+//     // убрать существующую подсветку, если есть
+//     selectedTr.classList.remove("desktop");
+//     console.log('cnjxrf!!!')
+//   }
+//   selectedTr = tr;
+//   // selectedTr.classList.add("desktop"); // подсветить новый td
+// }
+
 
 
 // получаем данніе для построения гистограм
@@ -10,8 +48,10 @@ const ctx = document.getElementById("myChart");
 const saldoArray = [];
 
  async function onSaldo() {
-   const transactionArray = await fetchTransaction();
-   const items = transactionArray.transactions;
+  //  const transactionObj = await fetchTransaction();
+  //  const items = transactionObj.transactions;
+   const items = await creatTransactionArrayObj();
+   console.log(items);
   const uniqueDate = [...items]
     .map((items) => items.date)
     .filter((dates, index, array) => array.indexOf(dates) === index);
@@ -53,39 +93,9 @@ function addBarChart() {
   });
 }
 
-document.querySelector(".about-wallet").addEventListener("click", addBarChart);
+// document.querySelector(".about-wallet").addEventListener("click", addBarChart);
 
 
-const refs = {
-  body: document.querySelector("body"),
-
-  userName: document.querySelector(".user-name"),
-
-  openModalBtnSingUp: document.querySelector(".modal-sing-up-open"),
-  openModalBtnSingIn: document.querySelector(".modal-sing-in-open"),
-  closeModalBtn: document.querySelector(".close-btn"),
-  closeModalBtnIn: document.querySelector(".stop-btn-in"),
-  backdrop: document.querySelector(".backdrop"),
-
-  goOut: document.querySelector(".close-out"),
-
-  modalSingIn: document.querySelector(".modal-in-open"),
-  modalSingUp: document.querySelector(".modal-up-open"),
-  singInSubmit: document.querySelector(".js-sing-in"),
-  singUpSubmit: document.querySelector(".js-sing-up"),
-
-  singUpName: document.querySelector(".js-data-sing-up-name"),
-  singUpPassword: document.querySelector(".js-data-sing-up-password"),
-  singUpEmail: document.querySelector(".js-data-sing-up-email"),
-  singUpEmailControl: document.querySelector(".js-data-sing-up-email-control"),
-
-  singInData: document.querySelector(".js-data-sing-in"),
-  singInPassword: document.querySelector(".js-data-sing-in-password"),
-
-  tableStatistic: document.querySelector(".js-table-statistic > tbody"),
-
-  aboutWallet: document.querySelector(".about-wallet"),
-};
 
 // работа с именем и кнопкой вихода- сначала - невидимое, потом - при сабмите - видим, плюс показываем главный екран
 refs.userName.classList.add("not-show");
@@ -94,6 +104,8 @@ refs.goOut.classList.add("not-show");
 //слушаем сабмит на модалках
 refs.singUpSubmit.addEventListener("click", onShowMainWindow);
 refs.singInSubmit.addEventListener("click", onShowMainWindow);
+refs.singInSubmit.addEventListener("click", onTableBuild);
+refs.singUpSubmit.addEventListener("click", onTableBuild);
 
 //функция показа основного экрана (4 окно)
 function onShowMainWindow(e) {
@@ -111,7 +123,7 @@ function onShowMainWindow(e) {
 }
 
 function mainWindowShow() {
-  refs.aboutWallet.innerHTML = "";
+  refs.aboutWallet.classList.add('not-show');
   console.log("функція показу главного вікна");
 }
 //  работа с именем - конец
@@ -180,20 +192,41 @@ function closeModal() {
   console.log("Закриття ");
 }
 
+// працюємо з локал сторидж
+
+// const STORAGE_NAME = "user-name";
+// const STORAGE_EMAIL = "user-email";
+// const STORAGE_PASSWORD = "user-password";
+// // Register Form
+// const formRegisterData = {};
+
+// function getRegisterData() {
+//   try {
+    
+//   } catch (error) {
+    
+//   }
+// }
+
+// function validateAllFofm() {
+
+// }
+
+// function is ValidPa
+
 async function vieArray() {
   try {
-    const transactionArray = await fetchTransaction();
-    const arrayNew = transactionArray.transactions;
+    const transactionObj = await fetchTransaction();
+    const arrayNew = transactionObj.transactions;
     const transactionAll = arrayNew.map((transaction) => transaction.type);
-    console.log(transactionArray);
+    console.log(transactionObj);
     console.log(arrayNew);
     return transactionAll;
   } catch (error) {
     console.log(error);
+
   }
 }
-
-
 
 
 
@@ -214,3 +247,117 @@ async function lengthArray() {
   console.log(spendingCount);
 }
 lengthArray();
+
+export async function creatTransactionArrayObj() {
+  const transactionObj = await fetchTransaction();
+  const arrayNew = transactionObj.transactions;
+  console.log(arrayNew);
+  return arrayNew;
+}
+
+// async function onTableBuild() {
+//   const transactionObjAll = await creatTransactionArrayObj();
+//   // const transactionArray = transactionObjAll.map(
+//   //   (transaction) => transaction.transactions
+//   // );
+//   // const b = transactionArray.lenght;
+//   // console.log(b);
+//   //проблема - не виходить спіймати довжину масиву - кількість транзакцій!!!!!!!!!!!!----------
+//   for (let i = 0; i < 7; i += 1) {
+//     const a = transactionObjAll[i];
+//     console.log(a);
+//     tableAdd(a);
+//   }
+//   // return a;
+// }
+
+// function tableAdd({ date, type, amount, balance, description}) {
+//   if (type == 1) {
+// const tr = `<tr>
+//             <td class="data">"${date}"</td>
+//             <td class="type-transaction"><svg
+//   class="type-icon receipts"
+//   width="40"
+//   height="40"
+//   aria-label="type of transaction"
+// >
+//   <use href="./image/symbol-defs.svg#icon-one"></use>
+// </svg></td>
+//             <td class="descr-transaction">${description}<br><span class="desc-type-table">Wpływy - inne</span></td>
+//             <td class="amount">${amount}</td>
+//             <td class="balance">${balance}</td>
+//             </tr>`;
+//     refs.tableStatistic.insertAdjacentHTML("beforeend", tr);
+//   }  
+//   if (type == 2) {
+//     const tr = `<tr>
+//             <td class="data">"${date}"</td>
+//             <td class="type-transaction"><svg
+//   class="type-icon spending"
+//   width="40"
+//   height="40"
+//   aria-label="type of transaction"
+// >
+//   <use href="./image/symbol-defs.svg#icon-two"></use>
+// </svg></td>
+//             <td class="descr-transaction">${description}<br><span class="desc-type-table">Wydatki - zakupy</span></td>
+//             <td class="amount">${amount}</td>
+//             <td class="balance">${balance}</td>
+//             </tr>`;
+//     refs.tableStatistic.insertAdjacentHTML("beforeend", tr);
+//   }  
+//   if (type == 3) {
+//     const tr = `<tr>
+//             <td class="data">"${date}"</td>
+//             <td class="type-transaction"><svg
+//   class="type-icon receipts"
+//   width="40"
+//   height="40"
+//   aria-label="type of transaction"
+// >
+//   <use href="./image/symbol-defs.svg#icon-three"></use>
+// </svg></td>
+//             <td class="descr-transaction">${description}<br><span class="desc-type-table">Wpływy - wynagrodzenie</span></td>
+//             <td class="amount">${amount}</td>
+//             <td class="balance">${balance}</td>
+//             </tr>`;
+//     refs.tableStatistic.insertAdjacentHTML("beforeend", tr);
+//   }  
+//   if (type == 4) {
+//     const tr = `<tr>
+//             <td class="data">"${date}"</td>
+//             <td class="type-transaction"><svg
+//   class="type-icon spending"
+//   width="40"
+//   height="40"
+//   aria-label="type of transaction"
+// >
+//   <use href="./image/symbol-defs.svg#icon-four"></use>
+// </svg></td>
+//             <td class="descr-transaction">${description}<br><span class="desc-type-table">Wydatki - inne</span></td>
+//             <td class="amount">${amount}</td>
+//             <td class="balance">${balance}</td>
+//             </tr>`;
+//     refs.tableStatistic.insertAdjacentHTML("beforeend", tr);
+//   }  
+// };
+// 1":"Wpływy - inne","2":"Wydatki - zakupy","3":"Wpływy - wynagrodzenie","4":"Wydatki - inne"
+
+
+//   for (let i = 0; i < transactionArray.lenght; i += 1) {
+//     const transactionInfo = ({ date, type, amount, balance, description }) => {
+//       const tr = `<tr>
+//             <td class="data">"${date}"</td>
+//             <td class="type-transaction">${type}</td>
+//             <td class="descr-transaction">${description}</td>
+//             <td class="amount">${amount}</td>
+//             <td class="balance">${balance}</td>
+//             </tr>`;
+//       refs.tableStatistic.insertAdjacentHTML("beforeend", tr);
+//     };
+//   }
+//   console.log(transactionInfo);
+//   return transactionInfo;
+// }
+// onTableBuild();
+

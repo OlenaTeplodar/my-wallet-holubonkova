@@ -35,8 +35,8 @@ textarea {
 --botton-accent-color: #f599f5;
 --footer-backround-color: rgb(0, 48, 80, 0.7);
 --white-color: #ffffff;
---table-color-odd: #ecd8ec;
---table-color-even: #b8c1f8;
+--table-color-odd: #f1e5f1;
+--table-color-even: #e0e2f5;
 --transition-dur-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
@@ -59,6 +59,7 @@ h3,
 h4,
 p {
   margin: 0;
+  padding: 5px;
 }
 
 section {
@@ -200,7 +201,7 @@ h2 {
 }
 
 .close-btn-text {
-  font-size: 21px;
+  font-size: 14px;
   line-height: 1.1;
   text-transform: uppercase;
   color: var(--botton-accent-color);
@@ -210,7 +211,7 @@ h2 {
 }
 .close-btn:hover,
 .close-btn:focus {
-  border-color: var(--botton-accent-color);
+  border-color: var(--botton-color);
   background-color: transparent;
 }
 
@@ -342,20 +343,21 @@ h2 {
     margin-right: 10px;
 }
 
+
+
+.not-show {
+  display: none;
+}
+/* --------End   HEADER  ---------*/
 .about-wallet {
   padding: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* height: 80vh; */
+    text-align: center;
+    height: 80vh;
 }
-
-.not-show {
-  display: none;
-}
-/* --------End   HEADER  ---------*/
-
 /* -------- FOOTER --------*/
 .footer {
     display: flex;
@@ -365,7 +367,6 @@ h2 {
 }
 .footer-text {
     color: var(--text-color);
-    
 }
 .icon-heart {
   display: inline-block;
@@ -378,11 +379,7 @@ h2 {
   line-height: 1.17;
   color: var(--title-text-color);
 }
-.logo-intive {
-  width:70px;
-  height: 24px;
-  fill: var(--text-color);
-}
+
 /* -------- End FOOTER --------*/
 
 
@@ -465,6 +462,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   border: 3px solid purple;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 /* .charts {
 
@@ -500,4 +498,142 @@ tbody tr:nth-child(even) {
   background-color: var(--table-color-even);
 }
 
+.desc-type-table {
+  font-style: italic;
+}
+
+.spending {
+  fill: var(--botton-accent-color);
+}
+
+.receipts {
+  fill: var(--botton-color);
+}
 /* -------- End TABLE --------*/
+.charts {
+  background-color: rgb(94, 255, 0);
+  margin: 40px;
+display: flex;
+justify-content: space-around;
+min-height: 50%;
+}
+.pop-chart {
+background-color: #fff;
+max-width: 45%;
+}
+.bar-chart {
+  background-color: tomato;
+  max-width: 45%;
+}
+
+@media (min-width:769px) {
+  .on-mobile {
+    display: none;
+  }
+/* .charts {
+
+} */
+
+}
+/* --------Mobile------ */
+@media (max-width:768px) {
+body {
+max-width: 768px;
+}
+
+.charts {
+  background-color: aqua;
+  
+  /* position: sticky; */
+  top: 50px;
+}
+
+.slider {
+  /* overflow-y: auto; */
+}
+.pop-chart {
+background-color: #fff;
+max-width: 100%;
+}
+.bar-chart {
+  background-color: tomato;
+  max-width: 100%;
+}
+  table {
+    overflow-y: scroll;
+  }
+  .desktop {
+  display: none;
+}
+
+/* tbody tr:hover,
+tbody tr:focus {
+  background-color: #fff;
+  /* display: visible; */
+} 
+
+/* // ----------- слайдер */
+
+.slider {
+  position: relative;
+  width: 680px;
+  margin: 50px auto;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.45);
+}
+
+.slider input[name="switch"] {
+  display: none;
+}
+
+.switch {
+  position: absolute;
+  left: 0;
+  bottom: -40px;
+  text-align: center;
+  width: 100%;
+}
+
+.switch label {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  margin: 0 3px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .6);
+  border-radius: 50%;
+  border: 1px solid var(--text-color);
+  background-color: var(--text-color);
+}
+
+#btn1:checked~.switch label[for="btn1"] {
+  background-color: white;
+}
+
+#btn2:checked~.switch label[for="btn2"] {
+  background-color: white;
+}
+
+
+.slider-inner {
+  overflow: hidden;
+}
+
+.slides {
+  width: 300%;
+  transition: all 0.5s;
+}
+
+.slides canvas {
+  width: 680px;
+  height: 340px;
+  float: left;
+}
+
+#btn1:checked~slider-inner slides {
+  transform: translate(0);
+}
+
+#btn2:checked~.slider-inner .slides {
+  transform: translate(-680px);
+}
+

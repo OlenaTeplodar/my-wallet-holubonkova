@@ -83,9 +83,35 @@
     </header> -->
 
     <section class="main-windiow-section">
-        <div class="charts">
-            <canvas id="popChart" width="600" height="400"></canvas>
+<div class="charts desktop">
+        <canvas class="pop-chart" id="popChart" width="500" height="200"></canvas>
+            <canvas class="bar-chart" id="barChart" width="500" height="200"></canvas>
         </div>
+<div class="charts on-mobile">
+    <div class="slider">
+        <input type="radio" name="switch" id="btn1" checked>
+        <input type="radio" name="switch" id="btn2">
+            
+        <div class="switch">
+            <label for="btn1"></label>
+            <label for="btn2"></label>
+        </div>
+        
+        <div class="slider-inner">
+            <div class="slides">
+                
+                <canvas class="pop-chart" id="popChart" width="400" height="200"></canvas>
+                    <canvas class="bar-chart" id="barChart" width="400" height="200"></canvas>
+                
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
         <div class="transaction-history">
             <p class="title-transaction">HISTORIA TRANSAKCJI</p>
             <div class="statistic-table">
@@ -95,34 +121,27 @@
                 <table class="js-table-statistic">
                     <thead>
                         <tr>
-                            <th>Data</th>
+                            <th class="desktop">Data</th>
                             <th>Typ transakcji</th>
                             <th>Opis</th>
                             <th>Kwota</th>
-                            <th>Saldo</th>
+                            <th class="desktop">Saldo</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>01/01/2023</td>
-                            <td>+</td>
+                            <td class="desktop">01/01/2023</td>
+                            <td><svg
+  class="type-icon"
+  width="40"
+  height="40"
+  aria-label="type of transaction"
+>
+  <use href="./image/symbol-defs.svg#icon-one"></use>
+</svg></td>
                             <td>wnesek</td>
                             <td>8000</td>
-                            <td>+6000</td>
-                        </tr>
-                        <tr>
-                            <td>01/01/2023</td>
-                            <td>+</td>
-                            <td>wnesek</td>
-                            <td>8000</td>
-                            <td>+6000</td>
-                        </tr>
-                        <tr>
-                            <td>01/01/2023</td>
-                            <td>+</td>
-                            <td>wnesek</td>
-                            <td>8000</td>
-                            <td>+6000</td>
+                            <td class="desktop">+6000</td>
                         </tr>
                     </tbody>
                 </table>
@@ -141,9 +160,6 @@
                     <use href="./image/heart.svg#icon-heart"></use>
                 </svg>
             </span> for <span class="intive">intive</span> by Olena Holubonkova</h4>
-        <!-- <svg class="logo-intive" width="77" height="24">
-            <use href="./image/icon-intive.svg#icon-intive" width="70" height="70"></use>
-        </svg> -->
     </footer>
     <!-- -----End Footer ---  -->
 
@@ -189,9 +205,7 @@
         </div>
     </div>
     <!-- -- MODAL - SING UP End  --- -->
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
+
     <!-- -- MODAL - SING IN--- -->
     <div class="backdrop is-hidden modal-in-open" data-modal-sing-in>
         <div class="modal-container sing-in-modal">
