@@ -21,10 +21,22 @@ export const refs = {
   singInSubmit: document.querySelector(".js-sing-in"),
   singUpSubmit: document.querySelector(".js-sing-up"),
 
-  singUpName: document.querySelector(".js-data-sing-up-name"),
-  singUpPassword: document.querySelector(".js-data-sing-up-password"),
-  singUpEmail: document.querySelector(".js-data-sing-up-email"),
-  singUpEmailControl: document.querySelector(".js-data-sing-up-email-control"),
+  formSingUp: document.querySelector(".sing-up"),
+  formSingIn: document.querySelector(".sing-in"),
+
+  singUpName: document.querySelector(".js-up-name"),
+  singUpPassword: document.querySelector(".js-up-password"),
+  singUpEmail: document.querySelector(".js-up-email"),
+  singUpEmailControl: document.querySelector(".js-up-email-control"),
+
+  nameError: document.querySelector(".js-up-name + span.error"),
+  passwordError: document.querySelector(
+    ".js-up-password + span.error"
+  ),
+  emailError: document.querySelector(".js-up-email + span.error"),
+  emailControlError: document.querySelector(
+    ".js-up-email-control + span.error"
+  ),
 
   singInData: document.querySelector(".js-data-sing-in"),
   singInPassword: document.querySelector(".js-data-sing-in-password"),

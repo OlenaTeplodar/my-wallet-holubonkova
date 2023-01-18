@@ -26,7 +26,7 @@
             <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
 
             <div class="user-name">
-                <p class="user-name-text">My name</p>
+                <p><span class="user-name-text">My name</span></p>
             </div>
 
             <button type="submit" class="close-out btn" data-modal-out>Wyloguj</button>
@@ -168,31 +168,36 @@
     <div class="backdrop is-hidden modal-up-open" data-modal-sing-up>
         <div class="modal-container sing-up-modal">
 
-            <form class="modal-form sing-up">
+            <form class="modal-form sing-up" novalidate>
                 <p class="modal-form-call">Rejestracja</p>
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Nazwa użytkownika</span>
-                    <input type="text" name="user-data-sing-up-name" class="modal-form-input js-data-sing-up-name"
-                        required autocomplete="off" minlength="6" maxlength="16" pattern="[a-zA-Z]+">
+                    <input type="text" name="userName" class="modal-form-input js-input js-up-name"
+                        required autocomplete="off" >
+                        <span class="error" aria-live="polite"></span>
+
                 </label>
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Hasło</span>
-                    <input type="text" name="user-data-password" class="modal-form-input js-data-sing-up-password"
-                        required autocomplete="off" minlength="6" pattern="[a-zA-Z0-9]+">
+                    <input type="text" name="userPassword" class="modal-form-input js-input js-up-password"
+                        required autocomplete="off" >
+                        <span class="error" aria-live="polite"></span>
                 </label>
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Email</span>
-                    <input type="email" name="user-data-sing-up-email" class="modal-form-input js-data-sing-up-email"
+                    <input type="email" name="userEmail" class="modal-form-input js-input  js-up-email"
                         required autocomplete="off">
+                        <span class="error" aria-live="polite"></span>
                 </label>
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Potwierdź email</span>
-                    <input type="email" name="user-data-sing-up-email-control"
-                        class="modal-form-input js-data-sing-up-email-control" required autocomplete="off">
+                    <input type="email" name="userEmailControl"
+                        class="modal-form-input js-input js-up-email-control" required autocomplete="off">
+                        <span class="error" aria-live="polite"></span>
                 </label>
 
                 <button type="submit" class="modal-form-submit btn js-sing-up">Zarejetruj</button>

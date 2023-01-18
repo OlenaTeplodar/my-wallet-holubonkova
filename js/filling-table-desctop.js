@@ -1,19 +1,18 @@
 import { refs } from './refs.js';
-import {creatTransactionArrayObj} from './main.js'
+import {
+  creatTransactionArrayObj,
+  arrayOfTransactions,
+  lengthOfTransaction,
+} from "./transaction-obj.js";
 
 
 
 
 async function onTableBuild() {
-  const transactionObjAll = await creatTransactionArrayObj();
-  // const transactionArray = transactionObjAll.map(
-  //   (transaction) => transaction.transactions
-  // );
-  // const b = transactionArray.lenght;
-  // console.log(b);
-    
-  //проблема - не виходить спіймати довжину масиву - кількість транзакцій!!!!!!!!!!!!----------
-  for (let i = 0; i < 7; i += 1) {
+  const transactionObjAll = await arrayOfTransactions();
+  const transactionAllCount = await lengthOfTransaction();
+
+  for (let i = 0; i < transactionAllCount; i += 1) {
     const a = transactionObjAll[i];
     console.log(a);
     tableAdd(a);

@@ -201,10 +201,10 @@ h2 {
 }
 
 .close-btn-text {
-  font-size: 14px;
+  font-size: 10px;
   line-height: 1.1;
   text-transform: uppercase;
-  color: var(--botton-accent-color);
+  color: var(--botton-color);
   transition: all 0.3s ease-in;
   opacity: 0;
   cursor: pointer;
@@ -348,15 +348,16 @@ h2 {
 .not-show {
   display: none;
 }
+
 /* --------End   HEADER  ---------*/
 .about-wallet {
   padding: 40px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     text-align: center;
-    height: 80vh;
+    height: 60vh;
 }
 /* -------- FOOTER --------*/
 .footer {
@@ -637,3 +638,34 @@ tbody tr:focus {
   transform: translate(-680px);
 }
 
+/* ----FORm validation */
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
+input:focus:invalid {
+  outline: none;
+}
+
+.error {
+  padding: 0;
+}
+.error.active {
+  width: 100%;
+  padding: 5px;
+
+  font-size: 10px;
+  color: white;
+  background-color: #900;
+  border-radius: 0 0 5px 5px;
+
+  box-sizing: border-box;
+}
+
+
+input.active {
+  border-color: #900;
+  background-color: #fdd;
+  box-shadow: 0 0 15px #1b0775;
+}
