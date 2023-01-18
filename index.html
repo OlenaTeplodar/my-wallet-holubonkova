@@ -85,7 +85,7 @@
     <section class="main-windiow-section">
 <div class="charts desktop">
         <canvas class="pop-chart" id="popChart" width="500" height="200"></canvas>
-            <canvas class="bar-chart" id="barChart" width="500" height="200"></canvas>
+            <canvas class="bar-chart" id="acquisitions" width="500" height="200"></canvas>
         </div>
 <div class="charts on-mobile">
     <div class="slider">
@@ -101,7 +101,7 @@
             <div class="slides">
                 
                 <canvas class="pop-chart" id="popChart" width="400" height="200"></canvas>
-                    <canvas class="bar-chart" id="barChart" width="400" height="200"></canvas>
+                    <canvas class="bar-chart" id="acquisitions" width="400" height="200"></canvas>
                 
             </div>
         </div>
@@ -220,14 +220,16 @@
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Nazwa użytkownika / Email</span>
-                    <input type="text" name="user-data-sing-in" class="modal-form-input js-data-sing-in" required
+                    <input type="text" name="singInData" class="modal-form-input js-data-in" required
                         autocomplete="off">
+                        <span class="error" aria-live="polite"></span>
                 </label>
 
                 <label class="modal-form-field">
                     <span class="modal-form-input-descr">Hasło</span>
-                    <input type="text" name="user-data-password" class="modal-form-input js-data-sing-in-password"
+                    <input type="text" name="singInPassword" class="modal-form-input js-in-password"
                         required autocomplete="off">
+                        <span class="error" aria-live="polite"></span>
                 </label>
 
                 <button type="submit" class="modal-form-submit btn js-sing-in btn">Zaloguj</button>

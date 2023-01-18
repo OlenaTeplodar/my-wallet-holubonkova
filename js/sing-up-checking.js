@@ -1,6 +1,6 @@
 import { refs } from "./refs.js";
 
-import { createUserObj } from "./checking.js";
+
 
 export function checkingSingUpForm() {
   refs.formSingUp.addEventListener("submit", (e) => {
@@ -59,8 +59,10 @@ export function checkingSingUpForm() {
     }
  // спрацьовує якщо довжина валідна і спрацьовує наступна операція
     alert(" forma OK!");
+    refs.userNameText.textContent = uName;
 const data = createDataObj(uName, uPassword, uEmail, uEmailControl);
-console.log(data);
+    console.log(data);
+    refs.formSingUp.reset();
     return data;
   })
 }

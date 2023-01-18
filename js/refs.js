@@ -7,6 +7,7 @@ export const refs = {
   fourthWindow: document.querySelector(".main-window"),
 
   userName: document.querySelector(".user-name"),
+  userNameText: document.querySelector('.user-name-text'),
 
   openModalBtnSingUp: document.querySelector(".modal-sing-up-open"),
   openModalBtnSingIn: document.querySelector(".modal-sing-in-open"),
@@ -38,8 +39,8 @@ export const refs = {
     ".js-up-email-control + span.error"
   ),
 
-  singInData: document.querySelector(".js-data-sing-in"),
-  singInPassword: document.querySelector(".js-data-sing-in-password"),
+  singInData: document.querySelector(".js-data-in"),
+  singInPassword: document.querySelector(".js-in-password"),
 
   tableStatistic: document.querySelector(".js-table-statistic > tbody"),
   aboutWallet: document.querySelector(".about-wallet"),

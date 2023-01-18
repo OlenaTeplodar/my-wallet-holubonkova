@@ -657,7 +657,7 @@ input:focus:invalid {
 
   font-size: 10px;
   color: white;
-  background-color: #900;
+  background-color: rgb(216, 108, 108);
   border-radius: 0 0 5px 5px;
 
   box-sizing: border-box;

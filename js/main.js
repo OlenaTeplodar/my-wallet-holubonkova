@@ -15,12 +15,14 @@ import { onSaldo } from "./barchart-data.js";
 import { vieArrayTypeAll, lengthArray } from "./donchart-data.js";
 
 
-import { checkingSingUpForm } from "./saving-checking.js";
-
+import { checkingSingUpForm } from "./sing-up-checking.js";
+import {checkingSingInForm} from './login-checking.js'
 checkingSingUpForm();
-// const ctx = document.getElementById("myChart");
 
+checkingSingInForm();
+const ctx = document.getElementById("myChart");
 
+// onTableBuild();
 
 // let selectedTr;
 
@@ -50,26 +52,56 @@ checkingSingUpForm();
 
 // onSaldo();
 
-
+const data = [
+  { year: 2010, count: 10 },
+  { year: 2011, count: 20 },
+  { year: 2012, count: 15 },
+  { year: 2013, count: 25 },
+  { year: 2014, count: 22 },
+  { year: 2015, count: 30 },
+  { year: 2016, count: 28 },
+];
 // // будуємо діаграму
-
+new Chart(document.getElementById("acquisitions"), {
+  type: "bar",
+  options: {
+    animation: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: false,
+      },
+    },
+  },
+  data: {
+    labels: data.map((row) => row.year),
+    datasets: [
+      {
+        label: "Acquisitions by year",
+        data: data.map((row) => row.count),
+      },
+    ],
+  },
+});
 // function addBarChart() {
 //   onSaldo();
 //   new Chart(ctx, {
 //     type: "bar",
 //     data: {
-//       labels: uniqueDate,
+//       labels: "uniqueDate",
 //       datasets: [
 //         {
 //           label: "# of Votes",
-//           data: saldoArray,
+//           data: [20, 40,50],
 //           borderWidth: 1,
 //         },
 //       ],
 //     },
 //   });
 // }
-
+// addBarChart();
 // document.querySelector(".about-wallet").addEventListener("click", addBarChart);
 
 
@@ -112,54 +144,7 @@ refs.goOut.classList.add("not-show");
 
 //   // saveData(userArray);
 
-//   checkUserNameLocalStorage(uName);
-
-//   if (!validateNameLength(uName)) {
-//     //false
-//     console.log("norm bukv");
-//   } else {
-//     console.log(" malo bukv");
-//   }
-
-//   if (validateNameContent(uName)) {
-//     //false
-//     console.log("litera!!valid");
-//   } else {
-//     console.log("ok");
-//   }
-
-// if (!validatePasswordLength(uPassword)) {
-//   //false
-//   console.log("norm bukv pass");
-// } else {
-//   console.log(" malo bukv pass");
-// }
-
-//   // if (isEmail(uEmail)) {
-//   //   //false
-//   //   console.log("Email valid");
-//   // } else {
-//   //   console.log("ok");
-//   // }
-  
-//   // function validateEmail(uEmail) {
-    
-//     // email valid
-//   //   const isEmail = ([...uEmail]) =>
-//   //     // проверяем, что в массиве есть символ `@`, он находится, как минимум, на второй позиции
-//   //     uEmail.indexOf("@") > 0 &&
-//   //     // и является единственным
-//   //     uEmail.indexOf("@") === uEmail.lastIndexOf("@") &&
-//   //     // проверяем, что в массиве есть точка,
-//   //     uEmail.indexOf(".") > 0 &&
-//   //     // она стоит после символа `@`
-//   //     uEmail.indexOf("@") < uEmail.indexOf(".") &&
-//   //     // и не является последним символом
-//   //     uEmail.indexOf(".") < uEmail.length - 1;
-//   //   console.log(isEmail);
-//   // // }
-// // ---end mail valid
-  
+//  
   
 
 
@@ -244,40 +229,6 @@ refs.goOut.classList.add("not-show");
 
 
 
-
-
-// function validateNameLength(uname) {
-//   const nameLen = uname.length;
-//   const mx = 16;
-//   const my = 6;
-//   if (nameLen > mx || nameLen < my) {
-    
-//     // refs.nameError.textContent = `Długość nazwy użytkownika musi wynosić co najmniej ${my} znaków i nie więcej niż ${mx} `;
-//     alert("Długość nazwy użytkownika musi wynosić co najmniej 6 znaków i nie więcej niż 16 " + mx + " to " + my);
-//   }
-//   return true
-// }
-
-// function validatePasswordLength(uPassword) {
-//   const passwordLen = uPassword.length;
-  
-//   const my = 6;
-//   if (passwordLen < my) {
-//     // refs.nameError.textContent = `Długość nazwy użytkownika musi wynosić co najmniej ${my} znaków i nie więcej niż ${mx} `;
-//     alert(
-//       "Długość nazwy użytkownika musi wynosić co najmniej 6 znaków" );
-//   }
-//   return true;
-// }
-
-
-
-
-
-
-
-
-
 // let formData1 = {};
 // const form = document.querySelector(".sing-up");
 // const LS = localStorage;
@@ -314,104 +265,9 @@ refs.goOut.classList.add("not-show");
 
 
 
-
-// });
-
 // refs.formSingUp.addEventListener("submit", (e) => {
 //   e.preventDefault();
   
-
-// let form = document.querySelector(".sing-up"),
-//   formInputs = document.querySelectorAll(".js-input"),
-//   inputName = document.querySelector(".js-data-sing-up-name"),
-//   inputPassword = document.querySelector(".js-data-sing-up-password");
-  // inputEmail = document.querySelector(".js-email"),
-  //   inputEmailControl = document.querySelector(
-  //     ".js-data-sing-up-email-control"
-  //   );
-  
-// function validateName(uname) {
-//   const nameLen = uname.value.length;
-//   const mx = 16;
-//   const my = 6;
-//     if (nameLen >= mx || nameLen < my) {
-//       refs.nameError.textContent = `Długość nazwy użytkownika musi wynosić co najmniej ${my} znaków i nie więcej niż ${mx} `;
-//       alert("Długość nazwy użytkownika musi wynosić co najmniej 6 znaków i nie więcej niż 16 " + mx + " to " + my);
-//   return false; }
-// }
-// function validatePassword(password) {
-//   const passwordLen = password.value.length;
-//     const my = 6;
-//     if (passwordLen < my) {
-//       refs.passwordError.textContent = `Długość nazwy użytkownika musi wynosić co najmniej ${my} znaków `;
-//       alert("Długość nazwy użytkownika musi wynosić co najmniej 6 znaków " );
-//   return false}
-//     }
-
-// // function validateEmail(email) {
-// //   let re =
-// //     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-// //   return re.test(String(email).toLowerCase());
-// // }
-
-
-// // function validateEmailControl(email, emailControl) {
-// //    return email.value === emailControl.value;
-// // }
-
-// form.onsubmit = function () {
-//   // let emailVal = inputEmail.value,
-
-//     emptyInputs = Array.from(formInputs).filter((input) => input.value === "");
-
-//   formInputs.forEach(function (input) {
-//     if (input.value === "") {
-//       input.classList.add("error");
-//     } else {
-//       input.classList.remove("error");
-//     }
-//   });
-
-//   if (emptyInputs.length !== 0) {
-//     console.log("inputs not filled");
-//     return false;
-//   }
-
-// if (validateName(uname)) {
-//   console.log("Name not valid");
-//   inputName.classList.add("error");
-//   return false;
-// } else {
-//   inputName.classList.remove("error");
-// }
-  
-//   if (validatePassword(password)) {
-//     console.log("Password not valid");
-//     inputPassword.classList.add("error");
-//     return false;
-//   } else {
-//     inputPassword.classList.remove("error");
-//   }
-
-//   // if (!validateEmail(emailVal)) {
-//   //   console.log("email not valid");
-//   //   inputEmail.classList.add("error");
-//   //   return false;
-//   // } else {
-//   //   inputEmail.classList.remove("error");
-//   // }
-
-//   // if (validateEmailControl(email, emailControl)) {
-//   //   console.log("email not control");
-//   //   inputEmailControl.classList.add("error");
-//   //   return false;
-//   // } else {
-//   //   inputEmailControl.classList.remove("error");
-//   // }
-  
-// };
-    
-// })
 
 
 
@@ -441,55 +297,7 @@ refs.goOut.classList.add("not-show");
 
 // }
 
-// function formValidate(form) {
-//   let error = 0;
-//   let formReq = document.querySelectorAll('.req');
-
-//   for (let index = 0; index < formReq.length; index++) {
-//     const input = formReq[index];
-//     formRemoveError(input);
-//     console.log(input.value);
-//     if (input.classList.contains('.js-data-sing-up-email')) {
-//       if (emailTest(input)) {
-//         formAddError(input)
-//         error++;
-//       }
-//       } else if (input.classList.contains('.js-data-sing-up-name')) {
-//         if (input.value.length < 6 || input.value.length > 16) {
-//           formAddError(input);
-//           error++;
-//         }
-//       }
-//       else if (input.classList.contains('.js-data-sing-up-password')) {
-//         if (input.value.length < 6 ) {
-//           formAddError(input);
-//           error++;
-//         }
-//     } else if (input.value === '') {
-//       formAddError(input);
-//       error++;
-//       }
-//   }
-//   console.log(error);
-//   }
-
-
-// function formAddError(input) {
-//   input.classList.add('.active')
-// }
-
-// function formRemoveError(input) {
-//   input.classList.remove('.active')
-// }
-
-// function emailTest(input) {
-//   return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-// }
-// refs.singUpSubmit.addEventListener("click", onShowMainWindow);
-// refs.singInSubmit.addEventListener("click", onShowMainWindow);
-// refs.singInSubmit.addEventListener("click", onTableBuild);
-// refs.singUpSubmit.addEventListener("click", onTableBuild);
-
+// 
 //функция показа основного экрана (4 окно)
 // function onShowMainWindow(e) {
 //   e.preventDefault();
