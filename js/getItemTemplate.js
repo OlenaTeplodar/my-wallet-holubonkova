@@ -17,14 +17,7 @@ export default async function tableBuild() {
   };
 }
   }
-  //  const transactionInfo = transactionArray.transactions;
+  // ------НЕ ВИКОРИСТОВУЄТЬСЯ
+
+
   
-// export const transactionInfo = ({ date, type, amount, balance, description }) => `<tr>
-//             <td class="data">"${date}"</td>
-//             <td class="type-transaction">${type}</td>
-//             <td class="descr-transaction">${description}</td>
-//             <td class="amount">${amount}</td>
-//             <td class="balance">${balance}</td>
-//             </tr>`;
-
-

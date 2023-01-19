@@ -23,7 +23,7 @@ let sum = 0;
     sum = 0;
     }
 console.log(saldoArray);
-    // return uniqueDate;
+    return uniqueDate;
 }
 
-export { onSaldo };
+export { onSaldo, saldoArray };

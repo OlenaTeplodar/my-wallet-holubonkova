@@ -51,3 +51,11 @@ export const items = [
 ];
 
 
+// export function wirkArray(datat, nover) {
+//   for (const dfg of datat) {
+//     if (dfg.balance === nover) {
+//       return('ok!!!')
+//     }
+//   }
+//   return('not ok')
+// }

@@ -11,16 +11,22 @@ import { closeModal, onEscClick } from "./close-modal.js";
 import openModalSingUp from "./op-mod-sing-up.js";
 import openModalSingIn from "./op-mod-sing-in.js";
 
-import { onSaldo } from "./barchart-data.js";
+import { onSaldo, saldoArray } from "./barchart-data.js";
 import { vieArrayTypeAll, lengthArray } from "./donchart-data.js";
-
+import { addBarChart } from './barchart-add.js';
+import { addDonChart } from './donchart-add.js';
 
 import { checkingSingUpForm } from "./sing-up-checking.js";
-import {checkingSingInForm} from './login-checking.js'
-checkingSingUpForm();
+import {checkingSingInForm} from './sing-in-checking.js'
 
-checkingSingInForm();
-const ctx = document.getElementById("myChart");
+
+checkingSingUpForm();
+// const ctx = document.getElementById("myChart");
+
+
+// const dflk = arrayOfTransactions();
+// console.log(dflk);
+// refs.body.addEventListener("click", wirkArray(dflk, "3000"));
 
 // onTableBuild();
 
@@ -62,46 +68,32 @@ const data = [
   { year: 2016, count: 28 },
 ];
 // // будуємо діаграму
-new Chart(document.getElementById("acquisitions"), {
-  type: "bar",
-  options: {
-    animation: false,
-    plugins: {
-      legend: {
-        display: false,
-      },
-      tooltip: {
-        enabled: false,
-      },
-    },
-  },
-  data: {
-    labels: data.map((row) => row.year),
-    datasets: [
-      {
-        label: "Acquisitions by year",
-        data: data.map((row) => row.count),
-      },
-    ],
-  },
-});
-// function addBarChart() {
-//   onSaldo();
-//   new Chart(ctx, {
-//     type: "bar",
-//     data: {
-//       labels: "uniqueDate",
-//       datasets: [
-//         {
-//           label: "# of Votes",
-//           data: [20, 40,50],
-//           borderWidth: 1,
-//         },
-//       ],
+// new Chart(document.getElementById("acquisitions"), {
+//   type: "bar",
+//   options: {
+//     animation: false,
+//     plugins: {
+//       legend: {
+//         display: false,
+//       },
+//       tooltip: {
+//         enabled: false,
+//       },
 //     },
-//   });
-// }
-// addBarChart();
+//   },
+//   data: {
+//     labels: data.map((row) => row.year),
+//     datasets: [
+//       {
+//         label: "Acquisitions by year",
+//         data: data.map((row) => row.count),
+//       },
+//     ],
+//   },
+// });
+
+addBarChart();
+addDonChart();
 // document.querySelector(".about-wallet").addEventListener("click", addBarChart);
 
 
@@ -122,28 +114,50 @@ refs.goOut.classList.add("not-show");
 //   });
 //   const usersname = userName.value;
 //   console.log("yes is submit", usersname);
-// });
-
+// }
+// checkingSingUpForm();
   // today
 // let userArray = [];
 // const LOCALSTORAGE_KEY = 'registrUser';
-// refs.formSingUp.addEventListener("submit", (e) => {
-//   console.log("submit yes");
-//   e.preventDefault();
+// function saveDataInLocal() {
+//   const dataUser = checkingSingUpForm();
   
-//   const uName = e.target.userName.value.trim();
-//   const uPassword = e.target.userPassword.value.trim();
-//   const uEmail = e.target.userEmail.value.trim();
-//   const uEmailControl = e.target.userEmailControl.value.trim();
-
-//   const data = createDataObj(uName, uPassword, uEmail, uEmailControl);
-
-//   console.log(data);
-//   userArray.push(data);
+  
+//   console.log(dataUser);
+//   userArray.push(dataUser);
 //   console.log(userArray);
-
 //   // saveData(userArray);
+// }
+//   function saveData(data) {
+//     const userList = getData();
+//     userList.push(data);
+//     localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
+//     console.log("saved in local");
+//   }
 
+//   function getData() {
+//     try {
+//       const dataJson = localStorage.getItem(LOCALSTORAGE_KEY);
+//       if (!dataJson) return [];
+//       return JSON.parse(dataJson);
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
+
+  // function checkUserNameLocalStorage(uName) {
+  //   const userList = getData();
+  //   const currentUser = userList.includes(uName);
+  //   if (!currentUser) {
+  //     saveData();
+  //     console.log("New user");
+  //   }
+
+  //   console.log(currentUser, "User not new надо запустить откр главного окна");
+  // }
+
+//   // 
+// saveDataInLocal();
 //  
   
 
@@ -175,33 +189,7 @@ refs.goOut.classList.add("not-show");
 //   e.currentTarget.reset(); 
 // });
 
-// function saveData(data) {
-//   const userList = getData();
-//   userList.push(data)
-//   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
-//   console.log("saved in local");
-// }
-
-// function getData() {
-//   try {
-//     const dataJson = localStorage.getItem(LOCALSTORAGE_KEY);
-//     if (!dataJson) return [];
-//     return JSON.parse(dataJson);
-//     } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-
-// function checkUserNameLocalStorage(uName) {
-//   const userList = getData();
-//   const currentUser = userList.includes(uName);
-//   if (!currentUser) {
-// saveData();
-//     console.log("New user");
-//   } 
-
-//   console.log(currentUser, "User not new надо запустить откр главного окна");
-// }
+// 
 
 // function checkWatchedLocalStorageMovies(btn, filmId, key) {
 //   const filmsArray = loadFromLocalStorage(key);

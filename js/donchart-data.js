@@ -29,6 +29,7 @@ async function lengthArray() {
   }
   console.log(receiptsCount);
   console.log(spendingCount);
+  return spendingCount;
 }
 
 export { vieArrayTypeAll, lengthArray }

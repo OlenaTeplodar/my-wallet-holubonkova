@@ -13,7 +13,16 @@ import { fetchTransaction } from "./api.js";
  async function arrayOfTransactions() {
      const transaction = await creatTransactionArrayObj();
      const arrayOftransaction = transaction.transactions;
-    console.log(arrayOftransaction);
+     console.log(arrayOftransaction);
+    //  const uName = "2022-11-09";
+    //  for (const dfg of arrayOftransaction) {
+    //      console.log(dfg.date);
+    //    if (dfg.date === uName) {
+    //      console.log("ok!!!");
+    //      }
+         
+    //  }
+     
     return arrayOftransaction;
 }
 
