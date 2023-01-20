@@ -25,15 +25,15 @@
 
             <img class="img-wallet" src="./image/wallet-color-big.png" alt="wallet">
 
-            <div class="user-name">
+            <div class="user-name not-show">
                 <p><span class="user-name-text">My name</span></p>
             </div>
 
-            <button type="submit" class="close-out btn" data-modal-out>Wyloguj</button>
+            <button type="submit" class="close-out btn not-show" data-modal-out>Wyloguj</button>
         </div>
     </header>
 
-    <section class="about-wallet">
+    <section class="about-wallet not-show">
         <h1>Twoje finanse to twoje romanse</h1>
         <h2>Miej wszystko pod kontrolą, bądź dyrygentem za swoje pieniądze</h2>
         <p>Jedną z głównych metod poprawy kondycji finansowej jest przejrzysta kontrola i księgowość.</p>
@@ -45,12 +45,15 @@
     <!-- End of first window -->
 
 
-    <section class="main-windiow-section">
+    <section class="main-windiow-section ">
+        <p class="title-struct">STRUKTURA TRANSAKCJI</p>
 <div class="charts desktop">
-        <canvas class="pop-chart" id="popChart" width="500" height="500"></canvas>
-            <canvas class="bar-chart" id="myChart" width="500" height="500"></canvas>
+    
+        <canvas class="pop-chart" id="popChart" width="500" height="300"></canvas>
+            <canvas class="bar-chart" id="myChart" width="500" height="300"></canvas>
         </div>
 <div class="charts on-mobile">
+    
     <div class="slider">
         <input type="radio" name="switch" id="btn1" checked>
         <input type="radio" name="switch" id="btn2">
@@ -62,9 +65,9 @@
         
         <div class="slider-inner">
             <div class="slides">
-                
-                <canvas class="pop-chart" id="popChart" width="400" height="200"></canvas>
-                    <canvas class="bar-chart" id="myChart" width="400" height="200"></canvas>
+                <canvas class="pop-chart" id="popChartM" width="400" height="200"></canvas>
+                    
+                <canvas class="bar-chart" id="myChartM" width="400" height="200"></canvas>
                 
             </div>
         </div>
@@ -92,20 +95,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="desktop">01/01/2023</td>
-                            <td><svg
-  class="type-icon"
-  width="40"
-  height="40"
-  aria-label="type of transaction"
->
-  <use href="./image/symbol-defs.svg#icon-one"></use>
-</svg></td>
-                            <td>wnesek</td>
-                            <td>8000</td>
-                            <td class="desktop">+6000</td>
-                        </tr>
+
                     </tbody>
                 </table>
                 <!-- Table  End-->

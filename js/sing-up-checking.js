@@ -3,10 +3,10 @@ import { refs } from "./refs.js";
 let userArray = [];
 const LOCALSTORAGE_KEY = "registrUser";
 
-export function checkingSingUpForm() {
-  refs.formSingUp.addEventListener("submit", (e) => {
-    console.log("submit yes");
-    e.preventDefault();
+export function checkingSingUpForm(e) {
+  // refs.formSingUp.addEventListener("submit", (e) => {
+  //   console.log("submit yes");
+  //   e.preventDefault();
   
     const uName = e.target.userName.value.trim();
     const uPassword = e.target.userPassword.value.trim();
@@ -59,62 +59,61 @@ export function checkingSingUpForm() {
     }
  // спрацьовує якщо довжина валідна і спрацьовує наступна операція
     alert(" forma OK!");
-    refs.userNameText.textContent = uName;
+    
 
 
     const dataUser = createDataObj(uName, uPassword, uEmail, uEmailControl);
     
-    console.table(dataUser);
-    console.table(createDataObj(uName, uPassword, uEmail, uEmailControl));
+//     
 
- userArray.push(dataUser);
-    console.log(userArray);
-    const currentUserName = uName;
-    console.log(currentUserName);
+//  userArray.push(dataUser);
+//     console.log(userArray);
+//     const currentUserName = uName;
+//     console.log(currentUserName);
 
-    checkUserNameLocalStorage(currentUserName);
+//     checkUserNameLocalStorage(currentUserName);
   
     // refs.formSingUp.reset();  ----винести в загальну функцію - -після збереження до Сховища
     return dataUser;
-  })
+  }
   
-}
 
-function saveData(data) {
-  const userList = getData();
 
-  userList.push(data);
-  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
-  console.log("saved in local");
-  console.log(userList.length);
-}
+// function saveData(data) {
+//   const userList = getData();
 
-function getData() {
-  try {
-    const dataJson = localStorage.getItem(LOCALSTORAGE_KEY);
-    if (!dataJson) return [];
-    return JSON.parse(dataJson);
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-function checkUserNameLocalStorage(currentUserName) {
-  const userList = getData();
-  console.log(userList, currentUserName);
+//   userList.push(data);
+//   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
+//   console.log("saved in local");
+//   console.log(userList.length);
+// }
 
-  for (const user of userList) {
-    const currentUser = user.userName;
-    console.log(currentUser);
-    // if (currentUser === currentUserName) {
-    //   console.log("User not new надо запустить откр главного окна");
-    // }
+// function getData() {
+//   try {
+//     const dataJson = localStorage.getItem(LOCALSTORAGE_KEY);
+//     if (!dataJson) return [];
+//     return JSON.parse(dataJson);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+// function checkUserNameLocalStorage(currentUserName) {
+//   const userList = getData();
+//   console.log(userList, currentUserName);
 
-    console.log("New user");
-  }
+//   for (const user of userList) {
+//     const currentUser = user.userName;
+//     console.log(currentUser);
+//     // if (currentUser === currentUserName) {
+//     //   console.log("User not new надо запустить откр главного окна");
+//     // }
 
-  saveData();
+//     console.log("New user");
+//   }
 
-}
+//   saveData();
+
+// }
 
    export function createDataObj(uName, uPassword, uEmail, uEmailControl) {
       return {

@@ -4,10 +4,10 @@ export const refs = {
   firstWindowHeader: document.querySelector(".first-window-header"),
   secondWindowHeader: document.querySelector(".sing-in-open"),
   thirdWindowHeader: document.querySelector(".sing-up-open"),
-  fourthWindow: document.querySelector(".main-window"),
+  mainWindow: document.querySelector(".main-windiow-section"),
 
   userName: document.querySelector(".user-name"),
-  userNameText: document.querySelector('.user-name-text'),
+  userNameText: document.querySelector(".user-name-text"),
 
   openModalBtnSingUp: document.querySelector(".modal-sing-up-open"),
   openModalBtnSingIn: document.querySelector(".modal-sing-in-open"),
@@ -31,9 +31,7 @@ export const refs = {
   singUpEmailControl: document.querySelector(".js-up-email-control"),
 
   nameError: document.querySelector(".js-up-name + span.error"),
-  passwordError: document.querySelector(
-    ".js-up-password + span.error"
-  ),
+  passwordError: document.querySelector(".js-up-password + span.error"),
   emailError: document.querySelector(".js-up-email + span.error"),
   emailControlError: document.querySelector(
     ".js-up-email-control + span.error"
