@@ -4,7 +4,7 @@ export const refs = {
   firstWindowHeader: document.querySelector(".first-window-header"),
   secondWindowHeader: document.querySelector(".sing-in-open"),
   thirdWindowHeader: document.querySelector(".sing-up-open"),
-  mainWindow: document.querySelector(".main-windiow-section"),
+  mainWindow: document.querySelectorAll(".main-window-section"),
 
   userName: document.querySelector(".user-name"),
   userNameText: document.querySelector(".user-name-text"),
