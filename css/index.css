@@ -531,20 +531,15 @@ max-width: 768px;
 }
 
 .charts {
-  background-color: aqua;
+  background-color: rgb(214, 233, 233);
   top: 50px;
 }
 
-.slider {
-  /* overflow-y: auto; */
-}
 .pop-chart {
-background-color: #fff;
-max-width: 100%;
+margin-left: 100px;
 }
 .bar-chart {
-  background-color: tomato;
-  max-width: 100%;
+ margin-left: 40px;
 }
   table {
     overflow-y: scroll;
@@ -607,22 +602,26 @@ tbody tr:focus {
 
 .slides {
   width: 100%;
+ display: flex;
+ 
   transition: all 0.5s;
 }
 
 .slides canvas {
-  width: 680px;
+  width: 100%;
   height: 240px;
   float: left;
-  
+
+  max-width: 500px;
+  max-height: 300px;
 }
 
-#btn1:checked~slider-inner slides {
+#btn1:checked~slider-inner .slides {
   transform: translate(0);
 }
 
 #btn2:checked~.slider-inner .slides {
-  transform: translate(-680px);
+  transform: translate(-550px);
 }
 
 /* ----FORm validation */

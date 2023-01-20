@@ -16,7 +16,6 @@ export async function addDonChart() {
       labels: ["Wydatki", "Wpływy"],
       datasets: [
         {
-          label: "Struktura transakcji",
           data: [spend, receipts],
           borderWidth: 1,
         },
@@ -37,7 +36,7 @@ export async function addDonChartM() {
       labels: ["Wydatki", "Wpływy"],
       datasets: [
         {
-          label: "Struktura transakcji",
+          
           data: [spend, receipts],
           borderWidth: 1,
         },
