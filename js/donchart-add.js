@@ -9,7 +9,9 @@ export async function addDonChart() {
     const allTransArr = await vieArrayTypeAll();
     const alltrans = allTransArr.length;
     const receipts = alltrans - spend;
-    console.log(alltrans, spend, receipts);
+  
+  ctd.style.height = "300px";
+
   new Chart(ctd, {
     type: "doughnut",
     data: {
@@ -29,7 +31,7 @@ export async function addDonChartM() {
   const allTransArr = await vieArrayTypeAll();
   const alltrans = allTransArr.length;
   const receipts = alltrans - spend;
-  console.log(alltrans, spend, receipts);
+
   new Chart(ctM, {
     type: "doughnut",
     data: {

@@ -4,10 +4,12 @@ import { onSaldo, saldoArray } from "./barchart-data.js";
 const ctx = document.getElementById("myChart");
 const ctM = document.getElementById("myChartM");
 
+ctx.style.height = "240px";
+ctx.style.width = "440px";
 
 export async function addBarChart() {
   const labelsD = await onSaldo();
-  console.table(labelsD);
+  
 
   new Chart(ctx, {
     type: "bar",

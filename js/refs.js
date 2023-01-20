@@ -4,7 +4,7 @@ export const refs = {
   firstWindowHeader: document.querySelector(".first-window-header"),
   secondWindowHeader: document.querySelector(".sing-in-open"),
   thirdWindowHeader: document.querySelector(".sing-up-open"),
-  mainWindow: document.querySelectorAll(".main-window-section"),
+  mainWindow: document.querySelector(".main-window-section"),
 
   userName: document.querySelector(".user-name"),
   userNameText: document.querySelector(".user-name-text"),
@@ -25,20 +25,10 @@ export const refs = {
   formSingUp: document.querySelector(".sing-up"),
   formSingIn: document.querySelector(".sing-in"),
 
-  singUpName: document.querySelector(".js-up-name"),
-  singUpPassword: document.querySelector(".js-up-password"),
-  singUpEmail: document.querySelector(".js-up-email"),
-  singUpEmailControl: document.querySelector(".js-up-email-control"),
-
   nameError: document.querySelector(".js-up-name + span.error"),
   passwordError: document.querySelector(".js-up-password + span.error"),
   emailError: document.querySelector(".js-up-email + span.error"),
-  emailControlError: document.querySelector(
-    ".js-up-email-control + span.error"
-  ),
-
-  singInData: document.querySelector(".js-data-in"),
-  singInPassword: document.querySelector(".js-in-password"),
+  emailControlError: document.querySelector(".js-up-email-control + span.error"),
 
   tableStatistic: document.querySelector(".js-table-statistic > tbody"),
   aboutWallet: document.querySelector(".about-wallet"),

@@ -10,8 +10,8 @@ function saveData(data) {
 
   userList.push(data);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
-  console.log("saved in local");
-  console.log(userList.length);
+
+  
 }
 
 export function getData() {
@@ -26,10 +26,9 @@ export function getData() {
 
 export function checkUserNameLocalStorage(currentUser) {
   const userList = getData();
-  console.log(userList, currentUser);
   const currentUserName = currentUser.userName;
   const currentUserEmail = currentUser.userEmail;
-  console.log(currentUserName);
+
   for (const user of userList) {
     if (user.userName === currentUserName) {
 
@@ -50,16 +49,16 @@ export function checkUserNameLocalStorage(currentUser) {
   refs.userName.classList.remove("not-show");
   refs.goOut.classList.remove("not-show");
   refs.userNameText.textContent = currentUserName;
-  console.log("New user");
+
 }
 
 
 export function checkUserInLogin(currentUser) {
   const userList = getData();
-  console.log(userList, currentUser);
+
   const currentUserName = currentUser.userName;
   const currentUserEmail = currentUser.userEmail;
-  console.log(currentUserName);
+
   for (const user of userList) {
     if (user.userName === currentUserName) {
       refs.userName.classList.remove("not-show");
@@ -79,5 +78,5 @@ export function checkUserInLogin(currentUser) {
   refs.userName.classList.remove("not-show");
   refs.goOut.classList.remove("not-show");
   refs.userNameText.textContent = currentUserName;
-  console.log("New user");
+
 }

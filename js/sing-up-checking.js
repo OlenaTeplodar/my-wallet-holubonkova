@@ -1,119 +1,55 @@
 import { refs } from "./refs.js";
 
-let userArray = [];
-const LOCALSTORAGE_KEY = "registrUser";
+
 
 export function checkingSingUpForm(e) {
-  // refs.formSingUp.addEventListener("submit", (e) => {
-  //   console.log("submit yes");
-  //   e.preventDefault();
+
   
     const uName = e.target.userName.value.trim();
     const uPassword = e.target.userPassword.value.trim();
     const uEmail = e.target.userEmail.value.trim();
     const uEmailControl = e.target.userEmailControl.value.trim();;
     
-    // f validation all form
+    // validation all form
     if (
       uName === "" ||
       uPassword === "" ||
       uEmail === "" ||
       uEmailControl === ""
     ) {
-      //false
       alert("Wszystkie pola muszą być wypełnione");
-      console.log("o bukv");
+
       return;
     }
 
-    // довжина імені
 
     if (!validateNameLength(uName)) {
-      //false
-      console.log("malo bukv");
       return;
     }
-// спрацьовує якщо довжина валідна і спрацьовує наступна операція
-    if (!validateNameContent(uName)) {
-      //false
-      console.log("not bukv");
-      return;
-    }
-// спрацьовує якщо довжина валідна і спрацьовує наступна операція
-    if (!validatePasswordLength(uPassword)) {
-      //false
-      console.log("malo bukv pass");
-      return;
-    }
- // спрацьовує якщо довжина валідна і спрацьовує наступна операція
-    if (!validateEmail(uEmail)) {
-      //false
-      console.log("not mail");
-      return;
-    }
- // спрацьовує якщо довжина валідна і спрацьовує наступна операція
-    if (!validateEmailControl(uEmail, uEmailControl)) {
-      //false
-      console.log("not ==");
-      return;
-    }
- // спрацьовує якщо довжина валідна і спрацьовує наступна операція
-    alert(" forma OK!");
-    
 
+  if (!validateNameContent(uName)) {
+      return;
+    }
+
+    if (!validatePasswordLength(uPassword)) {
+      return;
+    }
+
+    if (!validateEmail(uEmail)) {
+      return;
+    }
+
+    if (!validateEmailControl(uEmail, uEmailControl)) {
+      return;
+    }
 
     const dataUser = createDataObj(uName, uPassword, uEmail, uEmailControl);
-    
-//     
 
-//  userArray.push(dataUser);
-//     console.log(userArray);
-//     const currentUserName = uName;
-//     console.log(currentUserName);
-
-//     checkUserNameLocalStorage(currentUserName);
-  
-    // refs.formSingUp.reset();  ----винести в загальну функцію - -після збереження до Сховища
     return dataUser;
   }
   
 
 
-// function saveData(data) {
-//   const userList = getData();
-
-//   userList.push(data);
-//   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(userList));
-//   console.log("saved in local");
-//   console.log(userList.length);
-// }
-
-// function getData() {
-//   try {
-//     const dataJson = localStorage.getItem(LOCALSTORAGE_KEY);
-//     if (!dataJson) return [];
-//     return JSON.parse(dataJson);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-// function checkUserNameLocalStorage(currentUserName) {
-//   const userList = getData();
-//   console.log(userList, currentUserName);
-
-//   for (const user of userList) {
-//     const currentUser = user.userName;
-//     console.log(currentUser);
-//     // if (currentUser === currentUserName) {
-//     //   console.log("User not new надо запустить откр главного окна");
-//     // }
-
-//     console.log("New user");
-//   }
-
-//   saveData();
-
-// }
 
    export function createDataObj(uName, uPassword, uEmail, uEmailControl) {
       return {
@@ -148,7 +84,7 @@ function validateNameContent(uname) {
         const ok = !/^[0-9A-Z]+$/i.test(uname);
         if (ok) {
           refs.nameError.classList.add("active");
-          refs.nameError.textContent = `Nazwa użytkownika musi zawierać tylko litery i cyfry`;
+          refs.nameError.textContent = `Nazwa użytkownika może zawierać tylko litery i cyfry`;
           return false;
         }
     refs.nameError.textContent = "";
@@ -166,7 +102,7 @@ function validatePasswordLength(upassword) {
         const my = 6;
         if (passwordLen < my) {
           refs.passwordError.classList.add("active");
-          refs.passwordError.textContent = `Długość hasło musi wynosić co najmniej ${my} znaków `;
+          refs.passwordError.textContent = `Hasło musi mieć co najmniej ${my} znaków`;
           return false;
         }
     refs.passwordError.textContent = "";
@@ -194,8 +130,7 @@ function validateEmail(uemail) {
 
 
 function validateEmailControl(uemail, uemailcontrol) {
-    console.log(uemail);
-    console.log(uemailcontrol);
+
     if (uemail === uemailcontrol) {
         refs.emailControlError.textContent = "";
         refs.emailControlError.classList.remove("active");

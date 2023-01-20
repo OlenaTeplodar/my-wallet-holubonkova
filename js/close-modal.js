@@ -11,7 +11,7 @@ export function onEscClick(evt) {
     refs.openModalBtnSingUp.classList.remove("focus");
     refs.openModalBtnSingIn.classList.remove("hover");
     refs.openModalBtnSingUp.classList.remove("hover");
-    console.log("ескейп");
+   
   }
 }
 
@@ -26,9 +26,9 @@ export function closeModal() {
     refs.openModalBtnSingIn.classList.remove("is-hidden");
     refs.openModalBtnSingUp.classList.remove("center-position");
 
-    console.log("закриваємо модалку логования");
+    
   }
 
-  console.log("Закриття ");
+ 
 }
 

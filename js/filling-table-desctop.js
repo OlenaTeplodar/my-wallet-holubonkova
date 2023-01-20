@@ -1,6 +1,5 @@
 import { refs } from './refs.js';
 import {
-  creatTransactionArrayObj,
   arrayOfTransactions,
   lengthOfTransaction,
 } from "./transaction-obj.js";
@@ -14,7 +13,6 @@ async function onTableBuild() {
 
   for (let i = 0; i < transactionAllCount; i += 1) {
     const a = transactionObjAll[i];
-    console.log(a);
     tableAdd(a);
   }
   // return a;

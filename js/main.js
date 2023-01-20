@@ -36,18 +36,13 @@ refs.formSingIn.addEventListener("submit", onSingInSubmit);
 
 
 
-// function mainWindowShow() {
-//   refs.aboutWallet.classList.add('not-show');
-//   console.log("функція показу главного вікна");
-// }
-// //  работа с именем - конец
 
-// // Кнопка ВИХІД
+// // EXIT button
 refs.goOut.addEventListener("click", () => {
   document.location.reload();
   
 });
-// // кнопка ВИХІД Кінець
+
 
 
 

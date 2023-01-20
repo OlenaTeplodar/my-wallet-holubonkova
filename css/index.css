@@ -62,18 +62,7 @@ section {
   margin: 0 auto;
   padding: 0 15px;
 }
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
+
 
 .btn {
 cursor: pointer;
@@ -290,7 +279,6 @@ p {
   margin-left: 0px;
   }
 
-
   /* --------End  MODAL----------- */
 
   /* --------HEADER  ---------*/
@@ -363,6 +351,7 @@ p {
 .main-window {
     display: flex;
     justify-content: end;
+    display: block;
 }
 
 .user-name {
@@ -385,6 +374,7 @@ p {
   }
 
 canvas {
+  display: block;
   max-height: 100%;
 }
 
@@ -399,6 +389,7 @@ table {
 
 .transaction-history {
     text-align: center;
+    margin-top: 15px;
 }
 .title-struct {
   font-weight: 600;
@@ -448,11 +439,19 @@ tbody tr:nth-child(even) {
 }
 /* -------- End TABLE --------*/
 .charts {
-  
+  height: 300px;
   margin: 20px;
-display: flex;
+display: block;
 justify-content: space-around;
 min-height: 50%;
+}
+
+#myChart {
+  height: 240px;
+}
+
+#popChart {
+height: 240px;
 }
 .pop-chart {
 background-color: rgb(253, 241, 252);
@@ -475,6 +474,7 @@ padding: 10px;
 .not-show {
   display: none;
 }
+
 }
 /* --------Mobile------ */
 @media (max-width:768px) {
@@ -484,7 +484,7 @@ max-width: 768px;
 
 .charts {
   background-color: rgb(214, 233, 233);
-  top: 50px;
+  top: 20px;
 }
 
 .pop-chart {
@@ -493,9 +493,7 @@ margin-left: 100px;
 .bar-chart {
  margin-left: 40px;
 }
-  table {
-    overflow-y: scroll;
-  }
+
   .desktop {
   display: none;
 }
@@ -509,7 +507,7 @@ margin-left: 100px;
 .slider {
   position: relative;
   width: 680px;
-  margin: 50px auto;
+  margin: auto;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.45);
 }
 
@@ -589,7 +587,7 @@ input:focus:invalid {
   width: 100%;
   padding: 5px;
 
-  font-size: 14px;
+  font-size: 10px;
   color: white;
   background-color: rgb(216, 108, 108);
   border-radius: 0 0 5px 5px;
@@ -602,3 +600,5 @@ input.active {
   background-color: #fdd;
   box-shadow: 0 0 15px #1b0775;
 }
+
+

@@ -4,10 +4,10 @@ import { onEscClick } from "./close-modal.js";
 refs.openModalBtnSingUp.addEventListener("click", openModalSingUp);
 
 export default function openModalSingUp() {
-  refs.modalSingUp.classList.remove("is-hidden"); //видна модалка
-  window.addEventListener("keydown", onEscClick); // слушаем клик по Esc
-  refs.openModalBtnSingUp.classList.add("is-hidden"); // скрываем кнопку открытия
+  refs.modalSingUp.classList.remove("is-hidden"); 
+  window.addEventListener("keydown", onEscClick); 
+  refs.openModalBtnSingUp.classList.add("is-hidden"); 
   refs.openModalBtnSingIn.classList.add("center-position");
 }
 
-//Открытие модалки Регистрации и скрытия кнопки
+//Open the registration modal and hide the button
