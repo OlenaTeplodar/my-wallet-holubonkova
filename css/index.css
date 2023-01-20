@@ -331,12 +331,18 @@ p {
 
 /* --------End   HEADER  ---------*/
 .about-wallet {
-  padding: 40px;
+  padding: 40px 60px;
     /* display: flex; */
     /* flex-direction: column;
     align-items: center;
     justify-content: center; */
     text-align: center;
+
+    background-image: linear-gradient(rgba(84, 86, 107, 0.3), rgba(47, 48, 58, 0.1)), url("../image/music.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
     }
 /* -------- FOOTER --------*/
 .footer {
