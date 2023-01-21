@@ -373,10 +373,7 @@ p {
     margin: 40px auto;
   }
 
-canvas {
-  display: block;
-  max-height: 100%;
-}
+
 
 /* -------- TABLE --------*/
 table {
@@ -440,28 +437,23 @@ tbody tr:nth-child(even) {
 /* -------- End TABLE --------*/
 .charts {
   height: 300px;
+  width: 350px;
   margin: 20px;
-display: block;
+display: inline-flex;
 justify-content: space-around;
 min-height: 50%;
 }
 
-#myChart {
-  height: 240px;
-}
 
-#popChart {
-height: 240px;
-}
 .pop-chart {
 background-color: rgb(253, 241, 252);
-max-width: 45%;
 padding: 10px;
+margin-right: 20px;
 }
 .bar-chart {
   background-color: rgb(253, 241, 252);
-  max-width: 45%;
   padding: 10px;
+height: 340px;
 }
 
 @media (min-width:769px) {
